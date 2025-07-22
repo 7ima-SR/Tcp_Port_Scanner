@@ -35,7 +35,7 @@ except socket.gaierror:
     print(f"[-] Could not resolve {target}. Please check the target IP or domain name.")
     sys.exit(1)
 
-print(f"[+] Scanning Target: {target}, IP: {domain_target}")
+print(f"[+] Scanning Target: {target}")
 if start_port and end_port:
     print(f"[+] Scanning ports: {start_port} to {end_port}")
 else:
@@ -57,7 +57,7 @@ try:
     for port in ports_to_scan:
         with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
             sock.settimeout(args.timeout)
-            result = sock.connect_ex((target, port))
+            result = sock.connect_ex((domain_target, port))
             if result == 0:
                 open_ports.append(port)
                 try:

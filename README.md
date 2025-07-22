@@ -32,7 +32,7 @@ pip install termcolor pyfiglet
 ## 🛠️ Usage
 
 ```bash
-python tcp_scanner.py -t <target_ip> -p <ports> [-T <timeout>] [-o <output_file>]
+python tcp_port_scanner.py -t <target_ip> -p <ports> [-T <timeout>] [-o <output_file>]
 ```
 
 ---
@@ -51,7 +51,7 @@ python tcp_scanner.py -t <target_ip> -p <ports> [-T <timeout>] [-o <output_file>
 ## 📂 Example
 
 ```bash
-python tcp_scanner.py -t 192.168.1.1 -p 20-100 -T 2 -o scan_results.txt
+python tcp_port_scanner.py -t 192.168.1.1 -p 20-100 -T 2 -o scan_results.txt
 ```
 
 ---
