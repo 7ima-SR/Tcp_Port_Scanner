@@ -37,6 +37,17 @@ python tcp_scanner.py -t <target_ip> -p <ports> [-T <timeout>] [-o <output_file>
 
 ---
 
+## 🧾 Arguments
+
+| Flag               | Description                                                   | Required | Default                   |
+|--------------------|---------------------------------------------------------------|----------|----------------------------|
+| `-t`, `--target`   | Target IP address or domain to scan                           | ✅ Yes   | –                          |
+| `-p`, `--ports`    | Port range or list (e.g., `22,80,443` or `1-1024`)            | ❌ No    | `1-1024`                   |
+| `-T`, `--timeout`  | Timeout in seconds for each connection attempt                | ❌ No    | `1`                        |
+| `-o`, `--output`   | Output file to save the scan results                          | ❌ No    | `results_tcp_scanner.txt` |
+
+---
+
 ## 📂 Example
 
 ```bash
