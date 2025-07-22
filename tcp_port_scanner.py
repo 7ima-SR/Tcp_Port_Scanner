@@ -18,6 +18,7 @@ args = parser.parse_args()
 target = args.target
 
 ports_to_scan = []
+start_port = end_port = None
 if ',' in args.ports:
     ports_to_scan = [int(p.strip()) for p in args.ports.split(',')]
 elif '-' in args.ports:
@@ -28,8 +29,17 @@ else:
 
 start_time = time.time()
 
-print(f"[+] Scanning Target: {target}")
-print(f"[+] Scanning ports: {start_port} to {end_port}")
+try:
+    domain_target = socket.gethostbyname(target)
+except socket.gaierror:
+    print(f"[-] Could not resolve {target}. Please check the target IP or domain name.")
+    sys.exit(1)
+
+print(f"[+] Scanning Target: {target}, IP: {domain_target}")
+if start_port and end_port:
+    print(f"[+] Scanning ports: {start_port} to {end_port}")
+else:
+    print(f"[+] Scanning ports: {', '.join(map(str, ports_to_scan))}")
 
 def fake_progress():
     for i in range(3):
